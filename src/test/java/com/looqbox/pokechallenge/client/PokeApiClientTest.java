@@ -1,11 +1,10 @@
 package com.looqbox.pokechallenge.client;
 
-import com.looqbox.pokechallenge.model.PokemonPojo;
+import com.looqbox.pokechallenge.model.PokemonList;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
@@ -16,19 +15,19 @@ class PokeApiClientTest {
     @Test
     void itShouldReturnPokemonPojo(){
         //when
-        PokemonPojo response = underTest.getPokemon();
+        PokemonList response = underTest.getPokemon();
 
         //then
-        assertThat(response).isInstanceOf(PokemonPojo.class);
+        assertThat(response).isInstanceOf(PokemonList.class);
 
     }
     @Test
     void itShouldReturnNameList(){
         //given
-        PokemonPojo pokemonPojo = underTest.getPokemon();
+        PokemonList pokemonList = underTest.getPokemon();
 
         //when
-        ArrayList<String> names = underTest.getPokemonNames(pokemonPojo);
+        ArrayList<String> names = underTest.getPokemonNames(pokemonList);
 
         //then
         assertThat(names).isInstanceOf(ArrayList.class);
