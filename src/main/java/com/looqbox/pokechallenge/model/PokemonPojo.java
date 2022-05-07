@@ -21,8 +21,4 @@ public class PokemonPojo {
     public PokemonPojo() {
     }
 
-    public ArrayList<HashMap> getResults() {
-        return results;
-    }
-
 }
