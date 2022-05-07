@@ -27,18 +27,27 @@ public class PokemonService {
         return results;
     }
 
-    public HashMap<String, Object> highlightBySubstring(String name, String substring) {
+    public ArrayList<HashMap<String, Object>> highlightBySubstring(ArrayList<String> names, String substring) {
 
-        HashMap<String, Object> result = new HashMap<>();
+        ArrayList<HashMap<String, Object>> result = new ArrayList<>();
+
+        for (String name : names
+             ) {
+
+        HashMap<String, Object> highlight = new HashMap<>();
 
         Pattern pattern = Pattern.compile(substring);
         Matcher match = pattern.matcher(name);
 
         while(match.find()) {
-            result.put("name", name);
-            result.put("start", match.start());
-            result.put("end", match.end());
+            highlight.put("name", name);
+            highlight.put("start", match.start());
+            highlight.put("end", match.end());
+            }
+
+        result.add(highlight);
         }
+
         return result;
     }
 }

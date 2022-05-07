@@ -6,28 +6,26 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
 class PokemonServiceTest {
 
     PokemonService underTest = new PokemonService();
     @Test
     void itShouldSearchBySubstring() {
-        String substring = "pidge";
+        String substring = "pi";
 
         ArrayList<String> query = underTest.searchBySubstring(substring);
 
-        assertThat(query.toString()).isEqualTo("[pidgey, pidgeotto, pidgeot]");
+        assertThat(query.toString()).isEqualTo("[caterpie, pidgey, pidgeotto, pidgeot]");
     }
 
     @Test
     void itShouldHighlightBySubstring() {
         String substring = "pi";
-        String name = "pidgey";
+        ArrayList<String> query = underTest.searchBySubstring(substring);
+        ArrayList<HashMap<String, Object>> highlighted = underTest.highlightBySubstring(query, substring);
 
-        HashMap<String, Object> highlighted = underTest.highlightBySubstring(name, substring);
-
-        assertThat(highlighted.toString()).isEqualTo("{name=pidgey, start=0, end=2}");
+        assertThat(highlighted.toString()).isEqualTo("[{name=caterpie, start=5, end=7}, {name=pidgey, start=0, end=2}, {name=pidgeotto, start=0, end=2}, {name=pidgeot, start=0, end=2}]");
 
     }
 }
