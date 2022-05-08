@@ -9,6 +9,8 @@
 ## Run the project locally
 
 * clone this repo
+
+* build with `gradlew build`
   
 * build and run the Docker image
 
