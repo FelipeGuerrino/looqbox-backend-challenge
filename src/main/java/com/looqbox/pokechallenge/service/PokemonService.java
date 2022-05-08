@@ -1,7 +1,7 @@
 package com.looqbox.pokechallenge.service;
 
 import com.looqbox.pokechallenge.client.PokeApiClient;
-import com.looqbox.pokechallenge.model.PokemonList;
+import com.looqbox.pokechallenge.model.Pokedex;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -14,7 +14,7 @@ public class PokemonService {
     private final PokeApiClient pokeApiClient = new PokeApiClient();
 
     public ArrayList<String> searchBySubstring(String substring) {
-        PokemonList pokeList = pokeApiClient.getPokemon();
+        Pokedex pokeList = pokeApiClient.getPokemon();
         ArrayList<String> pokeNamesList = pokeApiClient.getPokemonNames(pokeList);
         ArrayList<String> results = new ArrayList<>();
 

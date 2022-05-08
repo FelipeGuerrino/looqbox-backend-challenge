@@ -1,6 +1,6 @@
 package com.looqbox.pokechallenge.client;
 
-import com.looqbox.pokechallenge.model.PokemonList;
+import com.looqbox.pokechallenge.model.Pokedex;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -15,19 +15,19 @@ class PokeApiClientTest {
     @Test
     void itShouldReturnPokemonPojo(){
         //when
-        PokemonList response = underTest.getPokemon();
+        Pokedex response = underTest.getPokemon();
 
         //then
-        assertThat(response).isInstanceOf(PokemonList.class);
+        assertThat(response).isInstanceOf(Pokedex.class);
 
     }
     @Test
     void itShouldReturnNameList(){
         //given
-        PokemonList pokemonList = underTest.getPokemon();
+        Pokedex pokedex = underTest.getPokemon();
 
         //when
-        ArrayList<String> names = underTest.getPokemonNames(pokemonList);
+        ArrayList<String> names = underTest.getPokemonNames(pokedex);
 
         //then
         assertThat(names).isInstanceOf(ArrayList.class);

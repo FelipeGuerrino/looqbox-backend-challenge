@@ -1,0 +1,10 @@
+version: '3.7'
+
+services:
+  pokechallenge:
+    build: .
+    image: pokechallenge:1.0
+    container_name: pokechallenge
+    ports:
+      - 8080:8080
+    restart: unless-stopped 

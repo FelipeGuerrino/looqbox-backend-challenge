@@ -10,15 +10,15 @@ import java.util.HashMap;
 @Getter
 @Setter
 @ToString
-public class PokemonList {
+public class Pokedex {
 
     private ArrayList<HashMap> results;
 
-    public PokemonList(ArrayList<HashMap> results) {
+    public Pokedex(ArrayList<HashMap> results) {
         this.results = results;
     }
 
-    public PokemonList() {
+    public Pokedex() {
     }
 
 }
